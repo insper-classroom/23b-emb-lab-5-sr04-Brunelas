@@ -235,7 +235,7 @@ int main(void) {
 
 	/* criando uma fila para mandar os dados de distancia do sensor*/
 	xQueueDados = xQueueCreate(32, sizeof(int));
-	xQueueDistancia = xQueueCreate(32, sizeof(float));
+	xQueueDistancia = xQueueCreate(32, sizeof(double));
 	xSemaphoreBUT1 = xSemaphoreCreateBinary();
 
 	if (xSemaphoreBUT1 == NULL) {
