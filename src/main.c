@@ -104,7 +104,7 @@ void but1_callback(void){
 static void task_oled(void *pvParameters) {
 	gfx_mono_ssd1306_init();
 	
-	float distancia;
+	double distancia;
 
 	char display[128];
 
@@ -122,7 +122,7 @@ void task_but () {
 	
 	
 	double distancia;
-	float tempo;
+	int tempo;
 
 	for (;;)  {
 		/* code */
