@@ -121,7 +121,6 @@ static void task_oled(void *pvParameters) {
 void task_but () {
 	
 	
-	double distancia;
 	int tempo;
 
 	for (;;)  {
@@ -134,9 +133,9 @@ void task_but () {
 			
 			if (xQueueReceive(xQueueDados, &tempo, portMAX_DELAY)) {
 				// para calcular a distacia eu faco delta t * velocidade do som/2 pq vai e volta
-				double distancia = (tempo*320000)*340/2;
-				printf("distancia: %f\n", distancia);
-				xQueueSend(xQueueDistancia,&distancia,0);
+				double dist = (tempo*320000)*340/2;
+				printf("distancia: %f\n", dist);
+				xQueueSend(xQueueDistancia,&dist,0);
 
 			}
 		}
