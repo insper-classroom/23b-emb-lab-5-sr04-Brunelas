@@ -82,7 +82,6 @@ extern void vApplicationMallocFailedHook(void) {
 
 void eco_callback(void) {
 	if (pio_get(ECO_PIO,ECO_PIO_ID,ECO_PIO_PIN_MASK)) {
-	printf("3");
 	
 		RTT_init(32000,0,0);
 		} else {
