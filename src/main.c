@@ -138,9 +138,9 @@ void task_but () {
 				printf("distancia: %f\n", distancia);
 				xQueueSend(xQueueDistancia,&distancia,0);
 
+			}
 		}
 	}
-
 }
 
 /************************************************************************/
@@ -176,22 +176,17 @@ static void BUT_init(void) {
 
 }
 
-static void TRI_init(void) {
-
-
+ void TRI_init(void) {
 	
-	/* conf bot�o como entrada */
 	pmc_enable_periph_clk(TRI_PIO_ID);
 	pio_configure(TRI_PIO, PIO_OUTPUT_0, TRI_PIO_PIN_MASK, PIO_DEFAULT);
 
 }
 
-static void ECO_init(void) {
-		/* conf ECHO */
+ void ECO_init(void) {
 	pio_configure(ECO_PIO, PIO_INPUT, ECO_PIO_PIN_MASK, PIO_DEFAULT);
 	pio_enable_interrupt(ECO_PIO, ECO_PIO_PIN_MASK);
 	pio_handler_set(ECO_PIO, ECO_PIO_ID, ECO_PIO_PIN_MASK, PIO_IT_EDGE , eco_callback);
-	/* configura prioridae */
 	NVIC_EnableIRQ(ECO_PIO_ID);
 	NVIC_SetPriority(ECO_PIO_ID, 4);
 }
